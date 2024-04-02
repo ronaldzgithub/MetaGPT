@@ -19,13 +19,13 @@ MULTI_ACTION_AGENT_CODE_EXAMPLE = EXAMPLE_CODE_FILE.read_text()
 class CreateAgent(Action):
     PROMPT_TEMPLATE: str = """
     ### BACKGROUND
-    You are using an agent framework called metagpt to write agents capable of different actions,
+    You are using an agent framework called metagpt to write tools for taoaistore,
     the usage of metagpt can be illustrated by the following example:
     ### EXAMPLE STARTS AT THIS LINE
     {example}
     ### EXAMPLE ENDS AT THIS LINE
     ### TASK
-    Now you should create an agent with appropriate actions based on the instruction, consider carefully about
+    Now you should create an tools based on the instruction, consider carefully about
     the PROMPT_TEMPLATE of all actions and when to call self._aask()
     ### INSTRUCTION
     {instruction}
@@ -84,10 +84,9 @@ if __name__ == "__main__":
         creator = AgentCreator(agent_template=agent_template)
 
         msg = """
-        Write an agent called SimpleTester that will take any code snippet (str) and do the following:
-        1. write a testing code (str) for testing the given code snippet, save the testing code as a .py file in the current working directory;
-        2. run the testing code.
-        You can use pytest as the testing framework.
+        Write an tool that will take a topic and do the following:
+        1. write a overview of the topic;
+        2. create a ppt out of the overview..
         """
         await creator.run(msg)
 
