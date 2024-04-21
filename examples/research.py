@@ -6,7 +6,7 @@ from metagpt.roles.researcher import RESEARCH_PATH, Researcher
 
 
 async def main():
-    topic = "阿里巴巴股价走势"
+    topic = "gpt-5 possible impact on the industry"
     role = Researcher(language="zh-cn")
     await role.run(topic)
     print(f"save report to {RESEARCH_PATH / f'{topic}.md'}.")
