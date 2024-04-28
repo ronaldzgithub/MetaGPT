@@ -28,10 +28,17 @@ NEWS_36KR_REQ = """从36kr创投平台https://pitchhub.36kr.com/financing-flash 
 """
 
 
-async def main():
-    di = DataInterpreter(tools=["scrape_web_playwright"])
+WEB_RESEARCH = """
+1, 从36kr创投平台https://pitchhub.36kr.com/financing-flash 所有初创企业融资的信息
+2. 2, 把这个信息中所有网页链接抽取出来，存入2.txt中，
+3. 3, 针对每一条链接中的内容， 进行总结， 然后分别存入一个文件。
+5. 把上面所有的文件连起来放入3.txt
+"""
 
-    await di.run(ECOMMERCE_REQ)
+async def main():
+    di = DataInterpreter(tools=["scrape_web_playwright", "search_engine_serper"])
+
+    await di.run(WEB_RESEARCH)
 
 
 if __name__ == "__main__":
