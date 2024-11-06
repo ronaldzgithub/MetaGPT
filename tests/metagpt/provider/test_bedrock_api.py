@@ -3,7 +3,7 @@ import json
 import pytest
 
 from metagpt.provider.bedrock.utils import (
-    NOT_SUUPORT_STREAM_MODELS,
+    NOT_SUPPORT_STREAM_MODELS,
     SUPPORT_STREAM_MODELS,
 )
 from metagpt.provider.bedrock_api import BedrockLLM
@@ -14,7 +14,7 @@ from tests.metagpt.provider.req_resp_const import (
 )
 
 # all available model from bedrock
-models = SUPPORT_STREAM_MODELS | NOT_SUUPORT_STREAM_MODELS
+models = SUPPORT_STREAM_MODELS | NOT_SUPPORT_STREAM_MODELS
 messages = [{"role": "user", "content": "Hi!"}]
 usage = {
     "prompt_tokens": 1000000,
@@ -64,7 +64,7 @@ def is_subset(subset, superset) -> bool:
     superset = {"prompt": "hello", "kwargs": {"temperature": 0.0, "top-p": 0.0}}
     is_subset(subset, superset)
     ```
-    >>>False
+
     """
     for key, value in subset.items():
         if key not in superset:

@@ -188,4 +188,5 @@ cov.xml
 *-structure.json
 *.dot
 .python-version
-config/config2.yaml
+*.csv
+metagpt/ext/sela/results/*
